@@ -13,8 +13,9 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import unu.jogja.project.ktp.coba.exceptions.NonexistentEntityException;
-import unu.jogja.project.ktp.coba.exceptions.PreexistingEntityException;
+import unu.jogja.project.ktp.coba.Dummy;
+import unu.jogja.project.ktp.exceptions.NonexistentEntityException;
+import unu.jogja.project.ktp.exceptions.PreexistingEntityException;
 
 /**
  *
@@ -27,11 +28,12 @@ public class DummyJpaController implements Serializable {
     }
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("unu.jogja_project.ktp_jar_0.0.1-SNAPSHOTPU");
 
+    public DummyJpaController() {
+    }
+    
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
-    }
-
-    public DummyJpaController() {
     }
 
     public void create(Dummy dummy) throws PreexistingEntityException, Exception {
